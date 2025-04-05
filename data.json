@@ -2,18 +2,18 @@
   "students": [
     {
       "id": 1,
-      "name": "Ana Maria",
+      "name": "Letícia Vitória",
       "course": "Computação"
     },
     {
       "id": 2,
-      "name": "Fernanda Silva",
+      "name": "Bruno Sai",
       "course": "Computação"
     },
     {
       "id": 3,
-      "name": "Marcela Rosa",
-      "course": "Matemática"
+      "name": "Ana Carolina",
+      "course": "Computação"
     }
   ]
 }
