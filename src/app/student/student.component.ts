@@ -27,16 +27,19 @@ this.formGroupStudent = formBuilder.group(
 
 
 }
-  ngOnInit(): void {
-    this.service.getStudents().subscribe({
-        next: json => this.students = json
-    })
+ ngOnInit(): void {
+    this.loadStudents();
   }
 
+  loadStudents(){
+    this.service.getAll().subscribe({
+      next: json => this.students = json
+    });
+  }
   
   save()
   {
-      this.service.saveStudent(this.formGroupStudent.value)
+      this.service.save(this.formGroupStudent.value)
                   .subscribe
       (
           {
@@ -48,4 +51,11 @@ this.formGroupStudent = formBuilder.group(
       )
   }
 
+  delete(student: Student) {
+    this.service.delete(student).subscribe(
+      {
+        next: () => this.loadStudents()
+      }
+    )
+  }
 }

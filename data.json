@@ -15,5 +15,15 @@
       "name": "Ana Carolina",
       "course": "Computação"
     }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "asdasd",
+      "level": "básico",
+      "duration": 234,
+      "available": "",
+      "modality": ""
+    }
   ]
 }

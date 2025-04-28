@@ -1,5 +1,5 @@
 <div class="container bg-light">
-    <div class="row" style="margin-top: 100px; margin-bottom: 100px; background-color: #B388EB;">
+    <div class="row">
         <div class="col-7 m-auto">
             <h1 class="text-center">Cadastro de Alunos</h1>
             <form [formGroup]="formGroupStudent">
@@ -20,12 +20,13 @@
               </form>
 
               <h1 class="text-center">Alunos Cadastrados</h1>
-               <table class="table table-striped" >
+              <table class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Curso</th>
+                    <th scope="col">Remover</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -33,8 +34,8 @@
                     <th scope="row">{{s.id}}</th>
                     <td>{{s.name}}</td>
                     <td>{{s.course}}</td>
+                    <td><button class="btn btn-danger" (click)="delete(s)"  >Remover</button>   </td>
                   </tr>
-                 
                 </tbody>
               </table>
 

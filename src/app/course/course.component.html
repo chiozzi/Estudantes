@@ -1,1 +1,78 @@
-<p>course works!</p>
+<div class="container bg-light">
+    <div class="row">
+        <div class="col-7 m-auto">
+            <h1 class="text-center">Cadastro de Cursos</h1>
+            <form [formGroup]="formGroupCourse">
+
+                <div class="mb-3">
+                    <label for="inputName" class="form-label">Nome do curso: </label>
+                    <input formControlName="name" type="text" class="form-control" id="inputName" aria-describedby="nameHelp">
+                    <div id="nameHelp" class="form-text">Digite o nome do curso</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputLevel" class="form-label">Nível do curso: </label>
+                    <select formControlName="level" class="form-select" id="inputLevel">
+                      <option value="">Selecione...</option>
+                      <option value="básico">Básico</option>
+                      <option value="intermediário">Intermediário</option>
+                      <option value="avançado">Avançado</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputDuration" class="form-label">Duração do curso: (em horas)</label>
+                    <input formControlName="duration" type="number" class="form-control" id="inputDuration" aria-describedby="durationHelp">
+                    <div id="durationHelp" class="form-text">Digite a duração do curso</div>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Avaliable" id="availableCheck">
+                    <label class="form-check-label" for="availableCheck">Disponível</label>
+                </div>
+
+
+                <div class="mb-3 mt-3">
+                <label class="form-label d-block">Modalidade</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="online" id="online">
+                    <label class="form-check-label" for="online">Online</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="presencial" id="presencial">
+                    <label class="form-check-label" for="presencial">Presencial</label>
+                  </div>
+                </div>
+
+        
+                <button type="submit" class="btn btn-primary" (click)="save()" >Salvar</button>
+              </form>
+
+              <h1 class="text-center">Cursos Cadastrados</h1>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Nível</th>
+                    <th scope="col">Duração</th>
+                    <th scope="col">Disponibilidade</th>
+                    <th scope="col">Modalidade</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let c of courses">
+                    <th scope="row">{{c.id}}</th>
+                    <td>{{c.name}}</td>
+                    <td>{{c.level}}</td>
+                    <td>{{c.duration}}h</td>
+                    <td>{{c.available ? 'Sim' : 'Não' }}</td>
+                    <td>{{c.modality}}</td>
+                    <td><button class="btn btn-danger" (click)="delete(c)"  >Remover</button>   </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>    
+</div>
