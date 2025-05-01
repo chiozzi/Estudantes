@@ -19,11 +19,19 @@
   "courses": [
     {
       "id": 1,
+      "name": "dasld",
+      "level": "intermediário",
+      "duration": 12,
+      "available": true,
+      "modality": "Presencial"
+    },
+    {
+      "id": 2,
       "name": "asdasd",
-      "level": "básico",
-      "duration": 234,
-      "available": "",
-      "modality": ""
+      "level": "intermediário",
+      "duration": 12,
+      "available": true,
+      "modality": "Presencial"
     }
   ]
 }

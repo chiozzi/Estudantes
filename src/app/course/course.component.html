@@ -1,6 +1,6 @@
-<div class="container bg-light">
+<div class="container">
     <div class="row">
-        <div class="col-7 m-auto">
+        <div class="col-8 m-auto">
             <h1 class="text-center">Cadastro de Cursos</h1>
             <form [formGroup]="formGroupCourse">
 
@@ -26,26 +26,32 @@
                     <div id="durationHelp" class="form-text">Digite a duração do curso</div>
                 </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Avaliable" id="availableCheck">
+                <div class="mb-3 mt-3 disponibilidade">
+                <label class="form-label d-block">Disponibilidade</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" formControlName="available" id="availableCheck">
                     <label class="form-check-label" for="availableCheck">Disponível</label>
+                  </div>
                 </div>
 
 
-                <div class="mb-3 mt-3">
+
+
+                <div class="mb-3 mt-3 modalidade">
                 <label class="form-label d-block">Modalidade</label>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="online" id="online">
-                    <label class="form-check-label" for="online">Online</label>
+                    <input class="form-check-input" type="radio" formControlName="modality" value="Online" id="online">
+                    <label class="form-check-label" for="Online">Online</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="presencial" id="presencial">
-                    <label class="form-check-label" for="presencial">Presencial</label>
+                    <input class="form-check-input" type="radio" formControlName="modality" value="Presencial" id="presencial">
+                    <label class="form-check-label" for="Presencial">Presencial</label>
                   </div>
                 </div>
 
-        
-                <button type="submit" class="btn btn-primary" (click)="save()" >Salvar</button>
+      
+                <button type="submit" class="btn btnsalvar" (click)="save()" >Salvar</button>
+               
               </form>
 
               <h1 class="text-center">Cursos Cadastrados</h1>
@@ -69,7 +75,10 @@
                     <td>{{c.duration}}h</td>
                     <td>{{c.available ? 'Sim' : 'Não' }}</td>
                     <td>{{c.modality}}</td>
-                    <td><button class="btn btn-danger" (click)="delete(c)"  >Remover</button>   </td>
+                    <td>
+                      <button class="btn btn-danger" (click)="delete(c)">Remover</button>
+                      <button type="button" class="btn btn-warning" (click)="edit(c)">Editar</button> 
+                    </td>
                   </tr>
                 </tbody>
               </table>

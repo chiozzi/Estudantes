@@ -13,6 +13,8 @@ export class CourseComponent implements OnInit {
 
   courses: Course[] = [];
   formGroupCourse: FormGroup;
+  editingCourse: Course | null = null;
+
 
   constructor(private service: CourseService,
     private formBuilder: FormBuilder
@@ -23,7 +25,7 @@ this.formGroupCourse = formBuilder.group(
    name: [''],
    level:[''],
    duration:[''], 
-   available:[''],
+   available:[false],
    modality:['']
 }
 );
@@ -35,24 +37,36 @@ ngOnInit(): void {
   }
 
   loadCourses(){
-    this.service.getCourse().subscribe({
+    this.service.getAll().subscribe({
       next: json => this.courses = json
     });
   }
   
-  save()
-  {
-      this.service.saveCourse(this.formGroupCourse.value)
-                  .subscribe
-      (
-          {
-            next: json => {
-                this.courses.push(json);
-                this.formGroupCourse.reset();
-            }
-          }
-      )
+  save() {
+    if (this.editingCourse) {
+      this.service.update(this.formGroupCourse.value).subscribe({
+        next: () => {
+          this.loadCourses();
+          this.formGroupCourse.reset();
+          this.editingCourse = null;
+        }
+      });
+    } else {
+      this.service.save(this.formGroupCourse.value).subscribe({
+        next: json => {
+          this.courses.push(json);
+          this.formGroupCourse.reset();
+        }
+      });
+    }
   }
+  
+  edit(course: Course) {
+    this.formGroupCourse.setValue(course);
+    this.editingCourse = course;
+  }
+    
+
 
   delete(course: Course) {
     this.service.delete(course).subscribe(

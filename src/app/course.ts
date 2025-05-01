@@ -4,6 +4,6 @@ export interface Course {
     level: string; 
     duration: number; 
     available: boolean; 
-    modality: 'online' | 'presencial'; 
+    modality: 'Online' | 'Presencial'; 
 }
   
