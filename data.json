@@ -1,23 +1,30 @@
 {
   "students": [
-  {
-    "id": 1,
-    "name": "Letícia Vitória",
-    "courseId": 1
-  },
-  {
-    "id": 2,
-    "name": "Bruno Sai",
-    "courseId": 1
-  }
-],
-
+    {
+      "id": 1,
+      "name": "Letícia Vitória",
+      "courseId": 1
+    },
+    {
+      "id": 2,
+      "name": "Bruno Sai",
+      "courseId": 1
+    }
+  ],
   "courses": [
     {
       "id": 1,
       "name": "Computação",
-      "level": "avançado",
-      "duration": 50,
+      "level": "Básico",
+      "duration": 300,
+      "available": true,
+      "modality": "Presencial"
+    },
+    {
+      "id": 2,
+      "name": "lalala",
+      "level": "Básico",
+      "duration": 52,
       "available": true,
       "modality": "Online"
     }

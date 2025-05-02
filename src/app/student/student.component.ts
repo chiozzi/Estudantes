@@ -49,19 +49,19 @@ this.formGroupStudent = formBuilder.group(
   }
   // salva um aluno
   // se o aluno já existe, atualiza
-  save()
-  {
-      this.service.save(this.formGroupStudent.value)
-                  .subscribe
-      (
-          {
-            next: json => {
-                this.students.push(json); // adiciona aluno na lista
-                this.formGroupStudent.reset();  // limpa o formulário
-            }
-          }
-      )
+  save() {
+    const student = this.formGroupStudent.value;
+    student.courseId = Number(student.courseId);  // converte o id do curso para número
+  
+    this.service.save(student)
+      .subscribe({
+        next: json => {
+          this.students.push(json);
+          this.formGroupStudent.reset();
+        }
+      });
   }
+  
 // pega o curso a partir do id
   getCourseName(courseId: number): string {
     const course = this.courses.find(c => c.id === courseId);
