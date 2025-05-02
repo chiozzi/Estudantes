@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Course } from '../course';
+import { CourseService } from '../course.service';
 
 @Component({
   selector: 'app-student',
@@ -11,24 +13,33 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class StudentComponent implements OnInit {
 
+
   students: Student[] = [];
   formGroupStudent: FormGroup;
+  courses: Course[] = [];
 
-  constructor(private service: StudentService,
-    private formBuilder: FormBuilder
+
+  constructor(
+    private service: StudentService,
+    private formBuilder: FormBuilder,
+    private courseService: CourseService
 ){
 this.formGroupStudent = formBuilder.group(
 {
    id:[''],
    name: [''],
-   course:['']
+   courseId:['']
 }
 );
 
 
 }
- ngOnInit(): void {
+
+  ngOnInit(): void {
     this.loadStudents();
+    this.courseService.getAll().subscribe({
+      next: json => this.courses = json
+    });
   }
 
   loadStudents(){
@@ -50,6 +61,12 @@ this.formGroupStudent = formBuilder.group(
           }
       )
   }
+
+  getCourseName(courseId: number): string {
+    const course = this.courses.find(c => c.id === courseId);
+    return course ? course.name : 'Não encontrado';
+  }
+  
 
   delete(student: Student) {
     this.service.delete(student).subscribe(

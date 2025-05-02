@@ -1,37 +1,25 @@
 {
   "students": [
-    {
-      "id": 1,
-      "name": "Letícia Vitória",
-      "course": "Computação"
-    },
-    {
-      "id": 2,
-      "name": "Bruno Sai",
-      "course": "Computação"
-    },
-    {
-      "id": 3,
-      "name": "Ana Carolina",
-      "course": "Computação"
-    }
-  ],
+  {
+    "id": 1,
+    "name": "Letícia Vitória",
+    "courseId": 1
+  },
+  {
+    "id": 2,
+    "name": "Bruno Sai",
+    "courseId": 1
+  }
+],
+
   "courses": [
     {
       "id": 1,
-      "name": "dasld",
-      "level": "intermediário",
-      "duration": 12,
+      "name": "Computação",
+      "level": "avançado",
+      "duration": 50,
       "available": true,
-      "modality": "Presencial"
-    },
-    {
-      "id": 2,
-      "name": "asdasd",
-      "level": "intermediário",
-      "duration": 12,
-      "available": true,
-      "modality": "Presencial"
+      "modality": "Online"
     }
   ]
 }
