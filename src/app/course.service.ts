@@ -13,19 +13,19 @@ export class CourseService {
   constructor(private http: HttpClient) { }
 
   getAll() : Observable<Course[]>{
-    return this.http.get<Course[]>(this.apiUrl);
+    return this.http.get<Course[]>(this.apiUrl); // pede ao servidor a lista de cursos
   }
 
   save(course:Course): Observable<Course>{
-    return this.http.post<Course>(this.apiUrl, course);
+    return this.http.post<Course>(this.apiUrl, course); // pede ao servidor para salvar o curso
   }
 
   delete(course:Course): Observable<void>{
-    return this.http.delete<void>(`${this.apiUrl}/${course.id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${course.id}`); // pede ao servidor para deletar o curso
  }
 
   update(course:Course): Observable<Course>{
-    return this.http.put<Course>(`${this.apiUrl}/${course.id}`, course);
+    return this.http.put<Course>(`${this.apiUrl}/${course.id}`, course); // pede ao servidor para atualizar o curso
  }
 
 

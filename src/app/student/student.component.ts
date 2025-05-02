@@ -15,7 +15,7 @@ export class StudentComponent implements OnInit {
 
 
   students: Student[] = [];
-  formGroupStudent: FormGroup;
+  formGroupStudent: FormGroup; // cria o formulário
   courses: Course[] = [];
 
 
@@ -34,20 +34,21 @@ this.formGroupStudent = formBuilder.group(
 
 
 }
-
+ // quando o componente aparecer na tela
   ngOnInit(): void {
-    this.loadStudents();
+    this.loadStudents(); // carrega a lista de alunos
     this.courseService.getAll().subscribe({
-      next: json => this.courses = json
+      next: json => this.courses = json  // carrega a lista de cursos
     });
   }
-
+ // busca todos os alunos cadastrados
   loadStudents(){
     this.service.getAll().subscribe({
       next: json => this.students = json
     });
   }
-  
+  // salva um aluno
+  // se o aluno já existe, atualiza
   save()
   {
       this.service.save(this.formGroupStudent.value)
@@ -55,23 +56,23 @@ this.formGroupStudent = formBuilder.group(
       (
           {
             next: json => {
-                this.students.push(json);
-                this.formGroupStudent.reset();
+                this.students.push(json); // adiciona aluno na lista
+                this.formGroupStudent.reset();  // limpa o formulário
             }
           }
       )
   }
-
+// pega o curso a partir do id
   getCourseName(courseId: number): string {
     const course = this.courses.find(c => c.id === courseId);
     return course ? course.name : 'Não encontrado';
   }
   
-
+// remove um aluno
   delete(student: Student) {
     this.service.delete(student).subscribe(
       {
-        next: () => this.loadStudents()
+        next: () => this.loadStudents() // atualiza a lista depois de remover
       }
     )
   }
