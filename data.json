@@ -9,6 +9,11 @@
       "id": 2,
       "name": "Bruno Sai",
       "courseId": 1
+    },
+    {
+      "id": 3,
+      "name": "Jéssica Chiozzi",
+      "courseId": 3
     }
   ],
   "courses": [
@@ -25,6 +30,14 @@
       "name": "lalala",
       "level": "Básico",
       "duration": 52,
+      "available": true,
+      "modality": "Online"
+    },
+    {
+      "id": 3,
+      "name": "Pedagogia",
+      "level": "Avançado",
+      "duration": 400,
       "available": true,
       "modality": "Online"
     }
