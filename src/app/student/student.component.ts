@@ -14,17 +14,17 @@ import { CourseService } from '../course.service';
 export class StudentComponent implements OnInit {
 
 
-  students: Student[] = [];
+  students: Student[] = []; //array
   formGroupStudent: FormGroup; // cria o formulário
-  courses: Course[] = [];
+  courses: Course[] = []; //array
 
 
-  constructor(
+  constructor(  // torna objetos externos utilizaveis dentro do componente
     private service: StudentService,
     private formBuilder: FormBuilder,
     private courseService: CourseService
 ){
-this.formGroupStudent = formBuilder.group(
+this.formGroupStudent = formBuilder.group( // inicia o formulario com os campos
 {
    id:[''],
    name: [''],
