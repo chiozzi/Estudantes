@@ -17,6 +17,7 @@ export class StudentComponent implements OnInit {
   students: Student[] = []; //array
   formGroupStudent: FormGroup; // cria o formulário
   courses: Course[] = []; //array
+  isEditing: boolean = false;
 
 
   constructor(  // torna objetos externos utilizaveis dentro do componente
@@ -61,6 +62,7 @@ this.formGroupStudent = formBuilder.group( // inicia o formulario com os campos
         }
       });
   }
+
   
 // pega o curso a partir do id
   getCourseName(courseId: number): string {

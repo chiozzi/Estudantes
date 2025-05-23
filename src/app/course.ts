@@ -6,4 +6,6 @@ export interface Course {
     available: boolean; 
     modality: 'Online' | 'Presencial'; 
 }
+
+
   
